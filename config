@@ -1,0 +1,37 @@
+PasswordAuthentication no
+StrictHostKeyChecking no
+
+
+Host Bastion
+        HostName 103.57.74.131
+        User ubuntu
+        IdentityFile ~/.ssh/id_rsa
+        PasswordAuthentication no
+
+
+
+Host HAproxy
+        HostName 188.95.226.168
+        User ubuntu
+        IdentityFile ~/.ssh/id_rsa
+
+
+Host devA
+        HostName 103.57.74.217
+        User ubuntu
+        IdentityFile ~/.ssh/id_rsa
+        ProxyJump HAproxy
+
+
+Host devB
+        HostName 89.46.83.138
+        User ubuntu
+        IdentityFile ~/.ssh/id_rsa
+        ProxyJump HAproxy
+
+
+Host devC
+        HostName 188.95.226.238
+        User ubuntu
+        IdentityFile ~/.ssh/id_rsa
+        ProxyJump HAproxy
